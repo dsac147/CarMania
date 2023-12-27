@@ -12,6 +12,15 @@ While developing this application, I gained proficiency in the following areas:
 - Ensuring a well-organized file and folder structure
 - Adhering to the principles of writing clean code.
 
+## Technologies Used
+
+- next : Gained expertise in using Next.js, a powerful React-based framework, allowing for server-side rendering and the generation of static websites, thereby optimizing performance.
+- typescript : Improved frontend development skills through TypeScript, leveraging static typing to catch errors early in the development process and enhancing code robustness.
+- headlessui : Expanded knowledge in building accessible and unstyled UI components, contributing to a more inclusive user experience.
+- tailwindcss : Developed proficiency in Tailwind CSS, a utility-first CSS framework, streamlining the styling process and promoting a consistent and maintainable design system.
+
+Overall, the combination of these technologies has significantly enriched my frontend skill set, providing you with a diverse toolset for building modern and performant web applications.
+
 ## Contributing
 
 First, run the development server:
