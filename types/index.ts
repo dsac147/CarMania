@@ -23,6 +23,14 @@ export interface FilterProps {
   fuel?: string;
 }
 
+type FilterApiSuccess = CarProps[];
+
+type FilterApiFailure = {
+  message: string;
+};
+
+export type FilterApiResponse = FilterApiSuccess | FilterApiFailure;
+
 export interface HomeProps {
   searchParams: FilterProps;
 }

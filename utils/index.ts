@@ -1,6 +1,8 @@
-import { CarProps, FilterProps } from "@/types";
+import { CarProps, FilterProps, FilterApiResponse } from "@/types";
 
-export async function fetchCars(filters: FilterProps) {
+export async function fetchCars(
+  filters: FilterProps
+): Promise<FilterApiResponse> {
   const { manufacturer, year, model, limit, fuel } = filters;
 
   const headers: HeadersInit = {
@@ -8,16 +10,21 @@ export async function fetchCars(filters: FilterProps) {
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 
-  const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
-    {
-      headers: headers,
+  try {
+    const response = await fetch(
+      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+      {
+        headers: headers,
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}`);
     }
-  );
-
-  const result = await response.json();
-
-  return result;
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return { message: `${error}` };
+  }
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -57,7 +64,7 @@ export const updateSearchParams = (type: string, value: string) => {
 
   searchParams.set(type, value);
   const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-  
+
   return newPathname;
 };
 
@@ -65,7 +72,9 @@ export const deleteSearchParams = (type: string) => {
   const newSearchParams = new URLSearchParams(window.location.search);
 
   newSearchParams.delete(type.toLocaleLowerCase());
-  const newPathname = `${window.location.pathname}?${newSearchParams.toString()}`;
+  const newPathname = `${
+    window.location.pathname
+  }?${newSearchParams.toString()}`;
 
   return newPathname;
 };
