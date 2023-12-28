@@ -19,8 +19,6 @@ While developing this application, I gained proficiency in the following areas:
 - headlessui : Expanded knowledge in building accessible and unstyled UI components, contributing to a more inclusive user experience.
 - tailwindcss : Developed proficiency in Tailwind CSS, a utility-first CSS framework, streamlining the styling process and promoting a consistent and maintainable design system.
 
-Overall, the combination of these technologies has significantly enriched my frontend skill set, providing you with a diverse toolset for building modern and performant web applications.
-
 ## Contributing
 
 First, run the development server:
